@@ -1,0 +1,25 @@
+﻿<Window x:Class="ChatApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChatApp"
+        xmlns:LoginForm="clr-namespace:ChatApp.View.UserControls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="450">
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Messenger RipOff" FontSize="40" FontWeight="Bold"></TextBlock>
+        <LoginForm:LoginForm Grid.Row="1" Width="300" Height="50" ></LoginForm:LoginForm>
+        <LoginForm:LoginForm Grid.Row="2" Width="300" Height="50"></LoginForm:LoginForm>
+        <Button Grid.Row="3" Width="120" Height="50" Content="Login" FontSize="20" FontWeight="DemiBold"></Button>
+
+
+    </Grid>
+</Window>
