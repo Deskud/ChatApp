@@ -3,23 +3,48 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ChatApp"
-        xmlns:LoginForm="clr-namespace:ChatApp.View.UserControls"
+        xmlns:local="clr-namespace:ChatApp" xmlns:viewmodel="clr-namespace:ChatApp.MVVM.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="450">
+        Background="#EEEEEE"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        ResizeMode="CanResizeWithGrip"
+        Title="BusyBustingChat" Height="550" Width="950">
+    <Window.DataContext>
+        <viewmodel:MainViewModel/>
+    </Window.DataContext>
     <Grid>
-        
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Messenger RipOff" FontSize="40" FontWeight="Bold"></TextBlock>
-        <LoginForm:LoginForm Grid.Row="1" Width="300" Height="50" ></LoginForm:LoginForm>
-        <LoginForm:LoginForm Grid.Row="2" Width="300" Height="50"></LoginForm:LoginForm>
-        <Button Grid.Row="3" Width="120" Height="50" Content="Login" FontSize="20" FontWeight="DemiBold"></Button>
-
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Border Name="moveWindow" Grid.ColumnSpan="2" Background="#00ADB5" MouseDown="moveWindow_MouseDown">
+            <Grid HorizontalAlignment="Stretch">
+                <Label Content="BusyBustingChat" FontSize="12" FontWeight="Bold" Foreground="White" Margin="10,2,10,2"/>
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button Name="clickMinimize" Width="35" Content="🗕" BorderThickness="0" Background="Transparent" FontWeight="Bold" Foreground="White" Click="clickMinimize_Click" Padding="0,-8,0,0"></Button>
+                    <Button Name="clickMaximize" Width="35" Content="🗖" BorderThickness="0" Background="Transparent" FontWeight="Bold" Foreground="White" Click="clickMaximize_Click"  Padding="0,-2,0,0"></Button>
+                    <Button Name="clickClose" Width="35" Content="✕" BorderThickness="0" Background="Transparent" FontWeight="Bold" Foreground="White" Click="clickClose_Click" ></Button>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <Grid Grid.Row="1" Background="#222831">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Content="User" VerticalAlignment="Center"  FontSize="15" FontWeight="Bold" Foreground="White" Margin="10,0,10,0"></Label>
+            <TextBlock Grid.Row="1" Background="#00ADB5"></TextBlock>
+            <Label Content="Friends" VerticalAlignment="Center" Grid.Row="1" FontSize="15" FontWeight="Bold" Margin="15,0,0,0"></Label>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="+" FontSize="30" Width="40" Height="40" Background="Transparent" BorderThickness="0" Padding="0,-5,0,0"></Button>
+            </StackPanel>
+            <ListView ItemsSource="{Binding Friends}" Grid.Row="2" Background="Transparent" BorderThickness="0" ItemContainerStyle="{StaticResource FriendsList}"/>
+        </Grid>
     </Grid>
 </Window>
