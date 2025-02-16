@@ -9,7 +9,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Icons\" />
+    <Content Include="Icons\send.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\phone.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\camera.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="MVVM\View\" />
     <Folder Include="Core\" />
   </ItemGroup>

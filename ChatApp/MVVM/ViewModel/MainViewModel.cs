@@ -52,7 +52,7 @@ namespace ChatApp.MVVM.ViewModel
                     Message = "Jarate?",
                     Time = DateTime.Now,
                     IsNativeOrigin = true,
-                    IsFirstMessage = true,
+             
                 });
             }
             Messages.Add(new MessageModel
@@ -61,17 +61,16 @@ namespace ChatApp.MVVM.ViewModel
                 Username = "Ok",
                 UsernameColor = "#626F47",
                 ImageSource = "https://i.imgur.com/Jvh1OQm.jpeg",
-                Message = "Last",
+                Message = "Im jorking it rn",
                 Time = DateTime.Now,
                 IsNativeOrigin = true,
-                IsFirstMessage = true,
             });
             for(int i = 0;i < 5; i++)
             {
                 Friends.Add(new FriendsModel
                 {
 
-                    Username = $"Hi {i}",
+                    Username = $"Friend {i}",
                     ImageSource = "https://i.imgur.com/Jvh1OQm.jpeg",
                     Messages = Messages
                 });

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChatApp" xmlns:viewmodel="clr-namespace:ChatApp.MVVM.ViewModel"
         mc:Ignorable="d"
-        Background="#EEEEEE"
+        Background="#393E46"
         WindowStyle="None"
         AllowsTransparency="True"
         ResizeMode="CanResizeWithGrip"
@@ -38,13 +38,36 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Label Content="User" VerticalAlignment="Center"  FontSize="15" FontWeight="Bold" Foreground="White" Margin="10,0,10,0"></Label>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Ellipse Width="30" Height="30" Fill="AntiqueWhite" Margin="10,0,10,0"></Ellipse>
+                <Label Content="User" VerticalAlignment="Center"  FontSize="15" FontWeight="Bold" Foreground="White" Margin="-5,0,0,0"/>
+            </StackPanel>
             <TextBlock Grid.Row="1" Background="#00ADB5"></TextBlock>
             <Label Content="Friends" VerticalAlignment="Center" Grid.Row="1" FontSize="15" FontWeight="Bold" Margin="15,0,0,0"></Label>
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button Content="+" FontSize="30" Width="40" Height="40" Background="Transparent" BorderThickness="0" Padding="0,-5,0,0"></Button>
             </StackPanel>
             <ListView ItemsSource="{Binding Friends}" Grid.Row="2" Background="Transparent" BorderThickness="0" ItemContainerStyle="{StaticResource FriendsList}"/>
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+            <Border BorderBrush="#1f2124" BorderThickness="0,0,0,2">
+                <Grid HorizontalAlignment="Stretch">
+                    <Ellipse Width="30" Height="30" Fill="AntiqueWhite" HorizontalAlignment="Left" Margin="7,0,0,0"></Ellipse>
+                    <Label Content="Username" HorizontalAlignment="Left" Foreground="white" FontSize="15" FontWeight="Bold" Padding="40,9,0,0"></Label>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Image Width="20" Height="20" RenderOptions.BitmapScalingMode="Fant" Margin="10,0,10,0" Source="./Icons/phone.png"/>
+                        <Image Width="20" Height="20" RenderOptions.BitmapScalingMode="Fant" Margin="10,0,10,0" Source="./Icons/camera.png"/>
+                    </StackPanel>
+                </Grid>
+
+            </Border>
+            <ListView Grid.Row="1" ItemsSource="{Binding SelectedFriend.Messages}" Background="Transparent" BorderThickness="0" ItemContainerStyle="{StaticResource}" />
         </Grid>
     </Grid>
 </Window>
