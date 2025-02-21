@@ -47,7 +47,7 @@
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button Content="+" FontSize="30" Width="40" Height="40" Background="Transparent" BorderThickness="0" Padding="0,-5,0,0"></Button>
             </StackPanel>
-            <ListView ItemsSource="{Binding Friends}" Grid.Row="2" Background="Transparent" BorderThickness="0" ItemContainerStyle="{StaticResource FriendsList}"/>
+            <ListView ItemsSource="{Binding Friends}" SelectedItem="{Binding SelectedFriend}" Grid.Row="2" Background="Transparent" BorderThickness="0" ItemContainerStyle="{StaticResource FriendsList}"/>
         </Grid>
 
         <Grid Grid.Column="1" Grid.Row="1">
@@ -60,14 +60,25 @@
                 <Grid HorizontalAlignment="Stretch">
                     <Ellipse Width="30" Height="30" Fill="AntiqueWhite" HorizontalAlignment="Left" Margin="7,0,0,0"></Ellipse>
                     <Label Content="Username" HorizontalAlignment="Left" Foreground="white" FontSize="15" FontWeight="Bold" Padding="40,9,0,0"></Label>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,15,2">
                         <Image Width="20" Height="20" RenderOptions.BitmapScalingMode="Fant" Margin="10,0,10,0" Source="./Icons/phone.png"/>
                         <Image Width="20" Height="20" RenderOptions.BitmapScalingMode="Fant" Margin="10,0,10,0" Source="./Icons/camera.png"/>
                     </StackPanel>
                 </Grid>
 
             </Border>
-            <ListView Grid.Row="1" ItemsSource="{Binding SelectedFriend.Messages}" Background="Transparent" BorderThickness="0" ItemContainerStyle="{StaticResource}" />
+            <ListView Grid.Row="1" ItemsSource="{Binding SelectedFriend.Messages}" Background="Transparent" BorderThickness="0" Margin="8,0,0,0" ItemContainerStyle="{StaticResource ChatItem}" />
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="90"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Row="1" Height="50" Text="Message Username" Style="{StaticResource MessageBox}"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1" Margin="0,0,15,2">
+                    <Image  Source="./Icons/add.png" Width="20" Height="20" Margin="5,2,10,2" RenderOptions.BitmapScalingMode="Fant"/>
+                    <Image  Source="./Icons/send.png" Width="20" Height="20" Margin="5,2,10,2" RenderOptions.BitmapScalingMode="Fant"/>
+                </StackPanel>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

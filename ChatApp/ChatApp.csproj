@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Icons\add.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="Icons\send.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -22,7 +26,12 @@
 
   <ItemGroup>
     <Folder Include="MVVM\View\" />
-    <Folder Include="Core\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Icons\add.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

@@ -7,21 +7,35 @@
                     <StackPanel>
 
                         <StackPanel Orientation="Horizontal">
-                            <Ellipse Width="20" Height="20">
+                            <Ellipse Width="20" Height="20" Margin="10,0,0,-5">
                                 <Ellipse.Fill>
                                     <ImageBrush ImageSource="{Binding ImageSource}" RenderOptions.BitmapScalingMode="Fant"></ImageBrush>
                                 </Ellipse.Fill>
                             </Ellipse>
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="{Binding Username}" Foreground="{Binding UsernameColor}" VerticalAlignment="Center"></Label>
-                                <Label Content="{Binding Time}" Foreground="Gray" FontSize="10" VerticalAlignment="Center"></Label>
+                                <Label Content="{Binding Username}" Foreground="{Binding UsernameColor}" VerticalAlignment="Center" Margin="0,0,-5,0" FontWeight="SemiBold"></Label>
+                                <Label Content="{Binding Time}" Foreground="Gray" FontSize="8" VerticalAlignment="Center"></Label>
                             </StackPanel>
                         </StackPanel>
-                        <Label Content="{Binding Message}" Foreground="White" FontSize="20" VerticalAlignment="Center"></Label>
+                        <Label Content="{Binding Message}" Foreground="White" VerticalAlignment="Center"></Label>
                     </StackPanel>
                     
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+
+        <Style.Resources>
+            <ControlTemplate x:Key="CustomRow">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="{Binding Message}" Foreground="white" Margin="40,-2,0,-2"/>
+                </StackPanel>
+            </ControlTemplate>
+        </Style.Resources>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding FirstMessage}" Value="False">
+                <Setter Property="Template" Value="{StaticResource CustomRow}"/>
+            </DataTrigger>
+        </Style.Triggers>
+        
     </Style>
 </ResourceDictionary>
